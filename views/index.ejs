@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <div>按钮1</div>
+    <div>按钮2</div>
+    <div>按钮3</div>
+    <div>按钮4</div>
+    <div>按钮5</div>
+    <script>
+    function kk(elem, i) {
+    	elem.onclick = function() {
+    		alert(i);
+    	}
+    }
+
+    var divArray = document.getElementsByTagName("div");
+    for (var i = 0;i<divArray.length;i++) {
+    	// divArray[i].onclick = function() {
+    	// 	alert(i);
+    	// }
+    	kk(divArray[i], i);
+
+    	divArray[i].t = function() {
+    		console.log(i);
+    	}
+
+    }
+    for(var i = 0;i<divArray.length;i++) {
+    	divArray[i].t();
+    }
+
+    var a = ["hello", "world"];
+    a[2] = 5;
+    a[5] = 5;
+    console.log(a.length);
+    var b = {};
+    b[1] = [];
+    console.log(b);
+
+    var kk = [];
+
+    var a1 = [,,,];
+    var a2 = new Array(3);
+    console.log(a1);
+    console.log(0 in a1);
+    console.log(0 in a2);
+
+    var arr1 = [1, 2, 3];
+    delete arr1[1];
+    console.log(1 in arr1);
+
+ // 这个对象产生严格自增的序列号
+    var serialnum = {
+        // 这个数据属性包含下一个序列号
+        // $符号暗示这个属性是一个私有属性
+        $n: 0,
+
+        // 返回当前值，然后自增
+        get next() { return this.$n++; },
+
+        // 给n设置新的值，但只有当它比当前值大时才设置成功
+        set next(n) {
+            if ( n >= this.$n ) this.$n = n + 1;
+            else throw "序列号的值不能比当前值小";
+        }
+    };
+
+    console.log(serialnum.next = 5);
+
+    var test = {"1":"a", "2":"b","length":2};
+    console.log(test[1]);
+    </script>
+  </body>
+</html>
