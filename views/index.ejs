@@ -75,6 +75,37 @@
 
     var test = {"1":"a", "2":"b","length":2};
     console.log(test[1]);
+
+    console.log(typeof null);
+    console.log(typeof undefined);
+
+    function myCount() {
+        var count = 1;
+        this.count = 2;
+        function f() { return this.count; }
+        return f();
+    }
+
+    var myCount1 = {
+        count: 1,
+        f: function() { return this.count; }
+    }
+    var mm = myCount1.f;
+    console.log(mm());
+
+    var name = "The Window";   
+　　var object = {   
+　　　　name : "My Object",   
+　　　　getNameFunc : function(){
+            var name = "hhhh";   
+　　　　　　return function(){   
+            alert(name);
+　　　　　　　　return this.name;   
+　　　　　};   
+　　　　}   
+    };   
+
+    object.getNameFunc()();
     </script>
   </body>
 </html>
